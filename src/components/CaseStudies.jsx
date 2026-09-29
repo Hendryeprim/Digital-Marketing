@@ -33,7 +33,7 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section id="case-studies" className="py-24 bg-primary">
+    <section id="case-studies" className="py-24 bg-[#060606]">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <motion.div 
@@ -52,7 +52,7 @@ const CaseStudies = () => {
             viewport={{ once: true }}
             className="mt-6 md:mt-0"
           >
-             <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">*Sample Case Studies</p>
+             <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">*Sample Work That Makes Brands Move.</p>
           </motion.div>
         </div>
 
@@ -68,9 +68,9 @@ const CaseStudies = () => {
             >
               {/* Image Header */}
               <div className="h-48 overflow-hidden relative">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10"></div>
+                <div className="absolute inset-0 bg-[#060606]/40 group-hover:bg-[#060606]/20 transition-colors z-10"></div>
                 <img src={c.image} alt={c.client} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10">
+                <div className="absolute top-4 left-4 z-20 bg-[#060606]/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-white border border-white/10">
                   {c.industry}
                 </div>
               </div>
@@ -85,11 +85,11 @@ const CaseStudies = () => {
                   <div className="text-gray-400 text-sm leading-tight mb-1">{c.metric}</div>
                 </div>
                 
-                <div className="w-full h-[1px] bg-white/10 my-6"></div>
+                <div className="w-full h-[1px] bg-[#060606]/10 my-6"></div>
                 
                 <div className="flex justify-between items-center">
                   <p className="text-sm font-semibold text-gray-300">{c.result}</p>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white group-hover:bg-secondary transition-colors duration-300">
+                  <a href="#" className="w-10 h-10 rounded-full bg-[#060606]/5 flex items-center justify-center text-white group-hover:bg-secondary transition-colors duration-300">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                   </a>
                 </div>

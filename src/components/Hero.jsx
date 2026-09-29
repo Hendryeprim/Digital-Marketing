@@ -1,112 +1,135 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, TrendingUp, Users } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, TrendingUp, Users } from "lucide-react";
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center">
-      {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col justify-center">
+      {/* Static glow — no animation, GPU-friendly */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(255,90,0,0.15)_0%,_transparent_70%)] -z-10 pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,_rgba(88,28,135,0.1)_0%,_transparent_70%)] -z-10 pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left Column */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-2xl"
-        >
-          <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-            <span className="text-xs md:text-sm font-medium tracking-wide text-gray-300 uppercase">Result-Driven Digital Marketing Agency</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white tracking-tight">
-            Turn Attention <br />
-            Into Real <span className="text-secondary relative">
-              Growth.
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path d="M0 10 Q 50 20 100 10" fill="transparent" stroke="#FF5A00" strokeWidth="4" strokeLinecap="round" />
-              </svg>
-            </span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl">
-            We build data-driven digital marketing strategies that turn visibility into qualified leads, customers and measurable business growth.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <a href="#contact" className="px-8 py-4 bg-secondary text-white text-base font-semibold rounded-full hover:bg-orange-600 transition-all shadow-[0_0_20px_rgba(255,90,0,0.3)] hover:shadow-[0_0_30px_rgba(255,90,0,0.5)] transform hover:-translate-y-1 text-center flex items-center justify-center">
-              Get Your Free Strategy Call
-              <ArrowRight size={18} className="ml-2" />
+        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-2xl">
+          <motion.div variants={fadeUp} className="inline-flex items-center space-x-2 bg-secondary/10 border border-secondary/25 rounded-full px-4 py-1.5 mb-8">
+            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+            <span className="text-xs font-semibold tracking-widest text-secondary uppercase">One-Roof Advertising Agency</span>
+          </motion.div>
+
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-extrabold leading-[1.05] mb-4 text-white tracking-tight" style={{ fontFamily: "Outfit, sans-serif" }}>
+            Ninety Days.{" "}
+            <span className="block">Your Brand Rebuilt.</span>
+          </motion.h1>
+
+          <motion.p variants={fadeUp} className="text-2xl md:text-3xl font-bold text-secondary mb-6" style={{ fontFamily: "Outfit, sans-serif" }}>
+            Growth You Can Bet On.
+          </motion.p>
+
+          <motion.p variants={fadeUp} className="text-base md:text-lg text-gray-400 mb-10 leading-relaxed max-w-xl">
+            The Ad House is not just a digital marketing company. Websites, mobile apps, social media, branding, ads, media production and offline advertising — everything your brand needs is under one roof.
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#contact"
+              className="group px-8 py-4 bg-secondary text-white font-semibold rounded-full hover:bg-orange-500 transition-colors duration-200 shadow-[0_0_20px_rgba(255,90,0,0.3)] hover:shadow-[0_0_35px_rgba(255,90,0,0.5)] flex items-center justify-center"
+            >
+              Get a Free Consultation
+              <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#case-studies" className="px-8 py-4 bg-transparent border border-white/20 text-white text-base font-semibold rounded-full hover:bg-white/5 transition-all text-center">
-              Explore Our Work
+            <a
+              href="#services"
+              className="px-8 py-4 bg-[#060606]/5 border border-white/15 text-white font-semibold rounded-full hover:bg-[#060606]/10 transition-colors duration-200 text-center"
+            >
+              Our Services
             </a>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Column - Visual */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="relative h-[500px] lg:h-[600px] w-full hidden md:block"
+        {/* Right Visual — 2 floating cards only */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="relative h-[480px] lg:h-[560px] w-full hidden md:block"
         >
-          {/* Main Visual Image container */}
-          <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 glass-card">
-            {/* Placeholder for high-quality imagery */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-800/80 to-gray-900 flex items-center justify-center overflow-hidden">
-               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Marketing Strategy" className="object-cover w-full h-full opacity-60 mix-blend-overlay" />
-            </div>
+          <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-gray-900 to-black">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=60&w=1200&auto=format&fit=crop"
+              alt="The Ad House — Advertising Strategy"
+              className="object-cover w-full h-full opacity-35 mix-blend-luminosity"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
           </div>
 
-          {/* Floating Cards */}
-          <motion.div 
-            animate={{ y: [0, -15, 0] }}
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute top-10 -left-10 glass-card p-5 rounded-2xl border border-white/10 flex items-center space-x-4 shadow-2xl"
+            style={{ willChange: "transform" }}
+            className="absolute top-10 -left-8 glass-card p-4 rounded-2xl flex items-center space-x-3 shadow-xl"
           >
-            <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
-              <TrendingUp size={24} />
+            <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary shrink-0">
+              <TrendingUp size={18} />
             </div>
             <div>
-              <p className="text-xs text-gray-400 font-medium">Website Traffic</p>
-              <p className="text-xl font-bold text-white">+230%</p>
+              <p className="text-[0.6rem] text-gray-400 font-medium uppercase tracking-wider">Brand Reach</p>
+              <p className="text-lg font-bold text-white">+230%</p>
             </div>
           </motion.div>
 
-          <motion.div 
-            animate={{ y: [0, 15, 0] }}
-            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-20 -right-5 glass-card p-5 rounded-2xl border border-white/10 flex items-center space-x-4 shadow-2xl"
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1.5 }}
+            style={{ willChange: "transform" }}
+            className="absolute bottom-20 -right-6 glass-card p-4 rounded-2xl flex items-center space-x-3 shadow-xl"
           >
-            <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-blue-400">
-              <BarChart2 size={24} />
+            <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
+              <Users size={18} />
             </div>
             <div>
-              <p className="text-xs text-gray-400 font-medium">Lead Growth</p>
-              <p className="text-xl font-bold text-white">+180%</p>
+              <p className="text-[0.6rem] text-gray-400 font-medium uppercase tracking-wider">Leads Generated</p>
+              <p className="text-lg font-bold text-white">5.2K+</p>
             </div>
           </motion.div>
+        </motion.div>
+      </div>
 
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 2 }}
-            className="absolute -bottom-10 left-10 glass-card p-5 rounded-2xl border border-white/10 flex items-center space-x-4 shadow-2xl"
-          >
-            <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
-              <Users size={24} />
+      {/* Intro Strip */}
+      <div className="container mx-auto px-6 md:px-12 mt-16 relative z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="border border-white/10 rounded-2xl p-8 bg-[#060606]/[0.025] grid grid-cols-1 md:grid-cols-4 gap-8"
+        >
+          <div className="md:col-span-1 md:border-r md:border-white/10 md:pr-8">
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Within 90 days, using the power of social media, we take your brand to the next level. Need leads? We deliver leads. Need footfall? We bring people to your doorstep. Whatever your goal, we work within your budget.
+            </p>
+          </div>
+          {[
+            { stat: "90", label: "Days", sub: "To take your brand to the next level" },
+            { stat: "13+", label: "Services", sub: "Digital and offline marketing" },
+            { stat: "1", label: "Roof", sub: "One team, one plan, one point of contact" },
+          ].map(({ stat, label, sub }) => (
+            <div key={label} className="text-center">
+              <h3 className="text-4xl font-extrabold text-white mb-1" style={{ fontFamily: "Outfit, sans-serif" }}>
+                <span className="text-secondary">{stat}</span> {label}
+              </h3>
+              <p className="text-xs text-gray-500 uppercase tracking-wider">{sub}</p>
             </div>
-            <div>
-              <p className="text-xs text-gray-400 font-medium">Leads Generated</p>
-              <p className="text-xl font-bold text-white">5.2K</p>
-            </div>
-          </motion.div>
-          
-          {/* Abstract elements */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border-[0.5px] border-white/5 rounded-full border-dashed animate-[spin_60s_linear_infinite] pointer-events-none -z-1"></div>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -1,82 +1,71 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
+
+const faqs = [
+  { q: "What services does The Ad House offer?", a: "We offer 13 services under one roof: websites, mobile apps, social media marketing, branding, logo design, performance marketing, Meta Ads, Google Ads, email marketing, media production, theatre advertising, offline branding and immersive advertisements." },
+  { q: "What is the 90-Day Growth Plan?", a: "Our 90-Day Growth Plan is a structured, results-focused process: 15 days of discovery and strategy, then building and launching, then optimising and scaling, and finally accelerating with a full performance report and roadmap." },
+  { q: "Can you work with my budget?", a: "Yes. We design plans around your budget. Whether you are starting small or scaling fast, we will find the right mix of services that deliver the best results for what you have." },
+  { q: "Do you handle both digital and offline marketing?", a: "Absolutely. The Ad House is one of the few agencies that covers digital marketing and offline branding � hoardings, vehicle branding, theatre ads and on-ground activations � all from one team." },
+  { q: "How do I get started?", a: "Click Contact Us, fill in the form and our team will get back to you within 24 hours. Tell us your goal and your budget and we will do the rest." },
+  { q: "Will I get reports on my campaigns?", a: "Yes. You will receive clear, regular performance reports with actual numbers � leads, footfall, sales � not just vanity metrics. You will always have a single point of contact." },
+  { q: "Do you create content and videos?", a: "Yes. We have an in-house media production team that handles ad films, corporate videos, product shoots, reels and photography from concept to final edit." },
+];
 
 const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const faqs = [
-    {
-      q: 'What digital marketing services do you offer?',
-      a: 'We offer a full suite of digital marketing services including Search Engine Optimization (SEO), Social Media Marketing, Google Ads & PPC, Content Marketing, Branding & Creative Design, and Website Design & Development.'
-    },
-    {
-      q: 'How long does SEO take to show results?',
-      a: 'SEO is a long-term strategy. While you may see some initial improvements within 3-4 weeks, meaningful compounding results typically take 3 to 6 months depending on the competitiveness of your industry.'
-    },
-    {
-      q: 'Do you manage Google Ads?',
-      a: 'Yes, we are certified Google Partners and manage millions in ad spend. We build highly targeted campaigns focused entirely on lowering your Cost Per Acquisition and maximizing Return on Ad Spend.'
-    },
-    {
-      q: 'Can you manage our social media?',
-      a: 'Absolutely. We handle everything from content creation and copywriting to community management and paid social campaigns across platforms like Instagram, LinkedIn, TikTok, and Facebook.'
-    },
-    {
-      q: 'How do you measure campaign success?',
-      a: 'We measure success based on your specific business goals—typically prioritizing metrics like Qualified Leads generated, Customer Acquisition Cost (CAC), and overall Revenue Growth, rather than just vanity metrics like likes or impressions.'
-    },
-    {
-      q: 'How can we get started?',
-      a: 'Simply book a free strategy call with our team. We’ll discuss your current bottlenecks, analyze your market, and propose a customized growth roadmap for your brand.'
-    }
-  ];
+  const [open, setOpen] = useState(0);
 
   return (
-    <section className="py-24 bg-[#0a0a0a] relative">
+    <section className="py-28 bg-[#060606] relative">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked <span className="text-secondary">Questions</span></h2>
-          <p className="text-gray-400 text-lg">Everything you need to know about working with us.</p>
+          <p className="text-secondary text-sm font-bold uppercase tracking-widest mb-4">FAQ</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ fontFamily: "Outfit, sans-serif" }}>
+            Frequently Asked <span className="text-secondary">Questions</span>
+          </h2>
+          <p className="text-gray-400 text-lg">Everything you need to know about working with The Ad House.</p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 ${activeIndex === i ? 'bg-white/5 border-secondary/30' : 'bg-transparent hover:bg-white/[0.02]'}`}
+              transition={{ delay: i * 0.06 }}
+              className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+                open === i
+                  ? "border-secondary/30 bg-secondary/5"
+                  : "border-white/10 bg-[#060606]/[0.02] hover:bg-[#060606]/[0.04]"
+              }`}
             >
-              <button 
-                onClick={() => setActiveIndex(activeIndex === i ? -1 : i)}
-                className="w-full px-6 py-5 flex justify-between items-center focus:outline-none"
+              <button
+                onClick={() => setOpen(open === i ? -1 : i)}
+                className="w-full px-6 py-5 flex justify-between items-center focus:outline-none text-left"
+                aria-expanded={open === i}
               >
-                <h3 className="font-bold text-left text-white text-lg">{faq.q}</h3>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${activeIndex === i ? 'bg-secondary text-white' : 'bg-white/10 text-gray-400'}`}>
-                  {activeIndex === i ? <Minus size={16} /> : <Plus size={16} />}
+                <h3 className="font-semibold text-white text-base pr-4">{faq.q}</h3>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${open === i ? "bg-secondary text-white" : "bg-[#060606]/10 text-gray-400"}`}>
+                  {open === i ? <Minus size={15} /> : <Plus size={15} />}
                 </div>
               </button>
-              
+
               <AnimatePresence>
-                {activeIndex === i && (
+                {open === i && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 text-gray-400 leading-relaxed">
-                      {faq.a}
-                    </div>
+                    <p className="px-6 pb-6 text-gray-400 leading-relaxed text-sm">{faq.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

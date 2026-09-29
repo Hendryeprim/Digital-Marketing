@@ -6,13 +6,13 @@ const Testimonials = () => {
     {
       name: 'Sarah Jenkins',
       role: 'CMO, TechStart Inc.',
-      content: 'Nova didn’t just bring us leads; they completely restructured our acquisition funnel. Our cost per acquisition dropped by 40% in just three months. They are a true partner.',
+      content: 'The Ad House didn’t just bring us leads; they completely restructured our acquisition funnel. Our cost per acquisition dropped by 40% in just three months. They are a true partner.',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
     },
     {
       name: 'David Chen',
       role: 'Founder, RetailWave',
-      content: 'I’ve worked with five agencies before Nova, and none of them understood our brand like this team does. Their creative execution matched with rigorous data analysis is unmatched.',
+      content: 'I’ve worked with five agencies before The Ad House, and none of them understood our brand like this team does. Their creative execution matched with rigorous data analysis is unmatched.',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop'
     },
     {
@@ -24,9 +24,9 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-primary relative">
+    <section className="py-24 bg-[#060606] relative">
       {/* Decorative Blur */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(255,90,0,0.15)_0%,_transparent_70%)] pointer-events-none -z-10"></div>
       
       <div className="container mx-auto px-6 md:px-12">
         <motion.div 
@@ -47,7 +47,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/[0.08] transition-colors flex flex-col justify-between h-full"
+              className="p-8 bg-[#060606]/5 rounded-3xl border border-white/10 hover:bg-[#060606]/[0.08] transition-colors flex flex-col justify-between h-full"
             >
               <div>
                 <div className="flex text-secondary mb-6 space-x-1">

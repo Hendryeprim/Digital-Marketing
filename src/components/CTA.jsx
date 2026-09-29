@@ -1,15 +1,46 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const CTA = () => (
-  <section className="py-24 bg-secondary text-center relative overflow-hidden">
-    <div className="container mx-auto px-6 relative z-10">
-      <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">Ready to Turn Your Brand<br/>Into a Growth Story?</h2>
-      <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Let's build a digital strategy designed around your business goals.</p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <button className="px-8 py-4 bg-white text-secondary font-bold rounded-full hover:bg-gray-100 transition-colors shadow-xl">Book a Free Strategy Call</button>
-        <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-colors">WhatsApp Us</button>
-      </div>
+  <section className="py-28 relative overflow-hidden">
+    {/* Layered background */}
+    <div className="absolute inset-0 bg-secondary" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.08)_0%,_transparent_60%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,0,0,0.3)_0%,_transparent_60%)]" />
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-[#060606]/20" />
+    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#060606]/20" />
+
+    <div className="container mx-auto px-6 relative z-10 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-6">
+          The 90-Day Challenge
+        </p>
+        <h2
+          className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+          style={{ fontFamily: "Outfit, sans-serif" }}
+        >
+          Ready to see your brand <br className="hidden md:block" />
+          grow in 90 days?
+        </h2>
+        <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+          Tell us your goal and your budget. We will do the rest.
+        </p>
+        <a
+          href="#contact"
+          className="group inline-flex items-center px-10 py-5 bg-[#060606] text-secondary font-extrabold text-lg rounded-full hover:bg-[#060606]/[0.03] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.3)] hover:shadow-[0_0_60px_rgba(0,0,0,0.4)] hover:-translate-y-1 transform"
+        >
+          Contact Us Today
+          <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+        </a>
+      </motion.div>
     </div>
   </section>
 );
+
 export default CTA;
