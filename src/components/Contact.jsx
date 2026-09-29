@@ -41,7 +41,7 @@ const Contact = () => {
     if (form.services.length === 0) return;
     setPhoneError("");
     setLoading(true);
-    // Mock submission � replace with real API call
+    // Mock submission ï¿½ replace with real API call
     await new Promise((r) => setTimeout(r, 1200));
     setLoading(false);
     setSubmitted(true);

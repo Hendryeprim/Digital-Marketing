@@ -6,19 +6,19 @@ const Testimonials = () => {
     {
       name: 'Sarah Jenkins',
       role: 'CMO, TechStart Inc.',
-      content: 'The Ad House didn’t just bring us leads; they completely restructured our acquisition funnel. Our cost per acquisition dropped by 40% in just three months. They are a true partner.',
+      content: 'The Ad House didnâ€™t just bring us leads; they completely restructured our acquisition funnel. Our cost per acquisition dropped by 40% in just three months. They are a true partner.',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
     },
     {
       name: 'David Chen',
       role: 'Founder, RetailWave',
-      content: 'I’ve worked with five agencies before The Ad House, and none of them understood our brand like this team does. Their creative execution matched with rigorous data analysis is unmatched.',
+      content: 'Iâ€™ve worked with five agencies before The Ad House, and none of them understood our brand like this team does. Their creative execution matched with rigorous data analysis is unmatched.',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop'
     },
     {
       name: 'Emily Roberts',
       role: 'Director of Marketing, Luxe Life',
-      content: 'The level of transparency and communication is incredible. We always know exactly where our budget is going and the exact ROI it’s generating. Highly recommended.',
+      content: 'The level of transparency and communication is incredible. We always know exactly where our budget is going and the exact ROI itâ€™s generating. Highly recommended.',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop'
     }
   ];

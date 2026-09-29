@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Building2, CalendarCheck, Wallet, Users2, FileBarChart, CheckCircle2 } from "lucide-react";
 
 const reasons = [
-  { icon: Building2, title: "Complete Digital & Offline Marketing", desc: "From social media to hoardings � all from one agency." },
+  { icon: Building2, title: "Complete Digital & Offline Marketing", desc: "From social media to hoardings ï¿½ all from one agency." },
   { icon: CalendarCheck, title: "A Clear 90-Day Plan", desc: "Measurable goals, fixed timelines, zero guesswork." },
   { icon: Wallet, title: "Plans Around Your Budget", desc: "We design what works for what you have, not the other way round." },
-  { icon: Users2, title: "In-House Creative & Tech Teams", desc: "Creative, media production and technology � all internal, all accountable." },
-  { icon: FileBarChart, title: "Regular Reports", desc: "Clear performance reports and a single point of contact � always." },
+  { icon: Users2, title: "In-House Creative & Tech Teams", desc: "Creative, media production and technology ï¿½ all internal, all accountable." },
+  { icon: FileBarChart, title: "Regular Reports", desc: "Clear performance reports and a single point of contact ï¿½ always." },
 ];
 
 const WhyUs = () => {

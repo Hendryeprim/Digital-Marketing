@@ -14,7 +14,7 @@ const fadeUp = {
 const Hero = () => {
   return (
     <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col justify-center">
-      {/* Static glow — no animation, GPU-friendly */}
+      {/* Static glow â€” no animation, GPU-friendly */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(255,90,0,0.15)_0%,_transparent_70%)] -z-10 pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,_rgba(88,28,135,0.1)_0%,_transparent_70%)] -z-10 pointer-events-none" />
 
@@ -35,7 +35,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p variants={fadeUp} className="text-base md:text-lg text-gray-400 mb-10 leading-relaxed max-w-xl">
-            The Ad House is not just a digital marketing company. Websites, mobile apps, social media, branding, ads, media production and offline advertising — everything your brand needs is under one roof.
+            The Ad House is not just a digital marketing company. Websites, mobile apps, social media, branding, ads, media production and offline advertising â€” everything your brand needs is under one roof.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
@@ -55,7 +55,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Right Visual — 2 floating cards only */}
+        {/* Right Visual â€” 2 floating cards only */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -65,7 +65,7 @@ const Hero = () => {
           <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-gray-900 to-black">
             <img
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=60&w=1200&auto=format&fit=crop"
-              alt="The Ad House — Advertising Strategy"
+              alt="The Ad House â€” Advertising Strategy"
               className="object-cover w-full h-full opacity-35 mix-blend-luminosity"
               loading="lazy"
               decoding="async"
